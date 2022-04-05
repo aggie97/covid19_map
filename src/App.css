@@ -1,0 +1,11 @@
+.main {
+  width: 100%;
+  height: calc(100vh - 100px);
+}
+
+.main::before {
+  content: "";
+  width: auto;
+  height: 100px;
+  display: block;
+}
