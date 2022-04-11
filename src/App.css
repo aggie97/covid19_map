@@ -1,6 +1,12 @@
 .main {
-  width: 100%;
-  height: calc(100vh - 100px);
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.main > * {
+  margin: 1rem 0;
 }
 
 .main::before {
