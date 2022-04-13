@@ -11,6 +11,7 @@ import CovidMap from "./components/CovidMap/CovidMap";
 
 function App() {
   const [datas, setDatas] = useState([]);
+  const [location, setLocation] = useState("");
 
   const getCovidData = async () => {
     await axios
@@ -27,12 +28,19 @@ function App() {
   useEffect(() => {
     getCovidData();
   }, []);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setLocation(e.target[0].value);
+    e.target[0].value = "";
+  };
+
   return (
     <Fragment>
       <MainHeader />
       <main className="main">
-        <Input />
-        <CovidMap />
+        <Input onSubmitLocation={onSubmit} />
+        <CovidMap location={location} />
       </main>
       <CovidInfo datas={datas} />
     </Fragment>
